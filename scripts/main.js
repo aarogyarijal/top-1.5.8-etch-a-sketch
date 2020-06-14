@@ -26,6 +26,7 @@ for(let i=0; i<(gridNumber**2); i++){
 
 //Changing color of divs on mouse over
 boxes.forEach(div => div.addEventListener("mouseover", changeColor));
+boxes.forEach(div => div.addEventListener("touchstart", changeColor));
 function changeColor(e){
     console.log(e);
     if(e.target.id === "container") return;

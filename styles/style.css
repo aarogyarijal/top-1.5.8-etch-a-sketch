@@ -1,4 +1,6 @@
 body{
+    width: auto;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
