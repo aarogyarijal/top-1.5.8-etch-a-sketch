@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    display: grid;
+    
+    background-color: #2196F3;
+    padding: 10px;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+
+#container>div {
+    background-color: rgba(255, 255, 255, 0.8);    
+}
+
+button{
+    font-size: 3vmin;
+    width: 15vmin;
+    height: 6vmin;
+    border-radius: 15px;
+    
+}
