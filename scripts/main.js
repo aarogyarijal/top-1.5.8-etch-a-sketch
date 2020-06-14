@@ -12,13 +12,12 @@ for(let i=0; i<256; i++){
 refreshButton.addEventListener("click", refreshButtonClicked)
 function refreshButtonClicked(){
     gridNumber = prompt("Grid Length?");
-    gridSize=(400/gridNumber);
     container.innerHTML = "";
 for(let i=0; i<(gridNumber**2); i++){
     let newChild=document.createElement("div");
     container.style=`grid-template-columns: repeat(${gridNumber}, auto)`;
-    newChild.style.width=gridSize;
-    newChild.style.height=gridSize;
+    newChild.style.width=`calc(80vmin/${gridNumber}`;
+    newChild.style.height=`calc(80vmin/${gridNumber}`;
     container.appendChild(newChild);
 
 }
