@@ -6,6 +6,7 @@ const lengthButton = document.querySelector("#length");
 const whiteModeButton = document.querySelector("#white");
 const blackModeButton = document.querySelector("#black");
 const colorfulModeButton = document.querySelector("#colorful");
+const customColorModeButton = document.querySelector("#custom-color");
 let mode="white";
 let gridNumber=16;
 
@@ -22,6 +23,13 @@ for(let i=0; i<256; i++){
 blackModeButton.addEventListener("click", function() {mode="black"});
 whiteModeButton.addEventListener("click", function() {mode="white"});
 colorfulModeButton.addEventListener("click", function() {mode="colorful"});
+customColorModeButton.addEventListener("click", function() 
+{
+    mode="custom";
+    r=prompt("How much red?(0-255)");
+    g=prompt("How much green?(0-255)");
+    b=prompt("How much blue?(0-255)");
+});
 
 boxes.forEach(div => div.addEventListener("mouseover", changeColor));
 boxes.forEach(div => div.addEventListener("touchstart", changeColor)); //For mobile support, properly works on touching div
@@ -29,9 +37,9 @@ function changeColor(e){
     console.log(mode);
     if(e.target.id === "container") return;
     if (mode==="colorful"){
-        let r = Math.random()*255;
-        let g = Math.random()*255;
-        let b = Math.random()*255;
+        r = Math.random()*255;
+        g = Math.random()*255;
+        b = Math.random()*255;
         e.target.style.backgroundColor=`rgb(${r},${g},${b})`;
     }
     else if (mode==="white" || !mode){
@@ -39,6 +47,9 @@ function changeColor(e){
     }
     else if (mode==="black"){
         e.target.style.backgroundColor="black";
+    }
+    else if (mode==="custom"){
+        e.target.style.backgroundColor=`rgb(${r},${g},${b})`;
     }
 }
 
