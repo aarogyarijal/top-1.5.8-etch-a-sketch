@@ -26,9 +26,15 @@ colorfulModeButton.addEventListener("click", function() {mode="colorful"});
 customColorModeButton.addEventListener("click", function() 
 {
     mode="custom";
-    r=prompt("How much red?(0-255)");
-    g=prompt("How much green?(0-255)");
-    b=prompt("How much blue?(0-255)");
+    do{
+        r=prompt("How much red?(0-255)");
+    }while(r<=255 && r>=0)
+    do{
+        g=prompt("How much green?(0-255)");
+}while(g<=255 && g>=0)
+    do{
+        b=prompt("How much blue?(0-255)");
+}while(b<=255 && b>=0)
 });
 
 boxes.forEach(div => div.addEventListener("mouseover", changeColor));
@@ -57,7 +63,11 @@ function changeColor(e){
 //When Length button is Clicked
 lengthButton.addEventListener("click", lengthButtonClicked);
 function lengthButtonClicked(){
-    gridNumber = prompt("Grid Length?");
+    gridNumber="";
+    do{    
+        gridNumber = prompt("Grid Length?");
+        gridNumber *= 1
+    }while(isNaN(gridNumber) || gridNumber=="");
     container.innerHTML = "";
     for(let i=0; i<(gridNumber**2); i++){
         console.log("called");
