@@ -1,6 +1,5 @@
 const container = document.querySelector("#container");
 const boxes = document.querySelectorAll("#container");
-const box = document.querySelector("#container").children;
 const clearButton = document.querySelector("#clear");
 const lengthButton = document.querySelector("#length");
 const whiteModeButton = document.querySelector("#white");
@@ -9,6 +8,7 @@ const colorfulModeButton = document.querySelector("#colorful");
 const customColorModeButton = document.querySelector("#custom-color");
 let mode="white";
 let gridNumber=16;
+let r, g, b;
 
 //Making Default Grid Divs
 for(let i=0; i<256; i++){
@@ -28,13 +28,14 @@ customColorModeButton.addEventListener("click", function()
     mode="custom";
     do{
         r=prompt("How much red?(0-255)");
-    }while(r<=255 && r>=0)
+    
+    }while(r>255 || r<0)
     do{
         g=prompt("How much green?(0-255)");
-}while(g<=255 && g>=0)
+    }while(g>255 || g<0)
     do{
         b=prompt("How much blue?(0-255)");
-}while(b<=255 && b>=0)
+    }while(b>255 || b<0)
 });
 
 boxes.forEach(div => div.addEventListener("mouseover", changeColor));
